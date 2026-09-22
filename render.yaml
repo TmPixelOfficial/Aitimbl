@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: timblogplay-ai
+    runtime: node
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PROVIDER
+        value: huggingface
+      - key: HF_TOKEN
+        sync: false
+      - key: MODEL
+        value: openai/gpt-oss-120b:fastest
+      - key: APP_PASSWORD
+        sync: false
